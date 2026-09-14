@@ -4,7 +4,8 @@ services:
     env: node
     plan: free
     autoDeploy: true
-    buildCommand: npm install && npm run build:bot
+    # NODE_ENV=production skips devDependencies; TypeScript (tsc) is required to build.
+    buildCommand: npm install --include=dev && npm run build:bot
     startCommand: npm start
     healthCheckPath: /health
     envVars:

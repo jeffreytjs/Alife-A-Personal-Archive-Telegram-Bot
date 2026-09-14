@@ -28,7 +28,7 @@ This guide describes the recommended hosting split for this template: **bot API 
 
 1. **New → Web Service**, connect the repo.
 2. **Root directory:** repository root (not `web-interface`).
-3. **Build command:** `npm install && npm run build:bot`
+3. **Build command:** `npm install --include=dev && npm run build:bot` (dev deps include TypeScript; `NODE_ENV=production` alone would skip them)
 4. **Start command:** `npm start`
 5. **Health check path:** `/health`
 
