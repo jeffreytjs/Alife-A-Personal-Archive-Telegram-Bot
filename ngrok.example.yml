@@ -1,0 +1,10 @@
+version: "2"
+# Copy to ngrok.yml and set your authtoken from https://dashboard.ngrok.com/get-started/your-authtoken
+authtoken: YOUR_NGROK_AUTHTOKEN
+tunnels:
+  web-interface:
+    proto: http
+    addr: 3001
+  bot-server:
+    proto: http
+    addr: 3000

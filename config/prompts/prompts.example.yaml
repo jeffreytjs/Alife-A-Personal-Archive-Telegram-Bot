@@ -1,0 +1,92 @@
+# Alife - A Personal Archive — everyday words you can spot on a normal day
+# See docs/adr/0002-prompt-configuration-format.md
+
+version: 1
+timezone: Asia/Singapore
+dailyAt: "08:00"
+
+phases:
+  - id: colors
+    from: "2026-09-01"
+    until: "2026-09-30"
+    generator: randomColor
+  - id: weekday-letter
+    from: "2026-10-01"
+    until: "2026-10-31"
+    generator: weekdayInitial
+  - id: month-letter
+    from: "2026-11-01"
+    generator: monthInitial
+
+generators:
+  randomColor:
+    type: list
+    words:
+      - red
+      - orange
+      - yellow
+      - green
+      - blue
+      - purple
+      - pink
+      - brown
+      - black
+      - white
+      - gray
+      - beige
+      - cream
+      - navy
+      - maroon
+      - tan
+      - gold
+      - silver
+
+  weekdayInitial:
+    type: initialOfCalendarUnit
+    unit: weekday
+    letterSource: firstCharacter
+    wordList: byLetter
+
+  monthInitial:
+    type: initialOfCalendarUnit
+    unit: month
+    letterSource: firstCharacter
+    wordList: byLetter
+
+lists:
+  byLetter:
+    A: [apple, air, arm, art, aunt]
+    B: [bag, bed, bike, bird, bread]
+    C: [car, cat, chair, coffee, cup]
+    D: [dog, door, dress, drink, desk]
+    E: [egg, eye, ear, exit, email]
+    F: [food, face, floor, flower, friend]
+    G: [game, glass, grass, green, gift]
+    H: [hair, hand, hat, home, house]
+    I: [ice, idea, iron, island, ink]
+    J: [job, juice, jeans, joy, jam]
+    K: [key, kid, kitchen, kite, king]
+    L: [light, lunch, love, leaf, line]
+    M: [milk, mail, mom, map, money]
+    N: [name, night, nose, note, news]
+    O: [office, oil, oven, ocean, open]
+    P: [park, phone, pizza, plant, paper]
+    Q: [queue, quiz, queen, quiet, question]
+    R: [rain, road, room, rice, red]
+    S: [sun, shoe, shop, school, sky]
+    T: [tea, tree, taxi, table, time]
+    U: [umbrella, uncle, uniform, up, under]
+    V: [video, voice, view, vegetable, visit]
+    W: [water, walk, work, window, weather]
+    X: [xray, extra, exit, box, mix]
+    Y: [yard, year, yellow, yogurt, yes]
+    Z: [zero, zip, zone, zoo, zoom]
+
+alternate:
+  generator: randomColor
+  excludePrimary: true
+
+overrides:
+  days: {}
+  weeks: {}
+  months: {}

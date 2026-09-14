@@ -1,0 +1,28 @@
+services:
+  - type: web
+    name: telegram-bot-api
+    env: node
+    plan: free
+    autoDeploy: true
+    buildCommand: npm install && npm run build:bot
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: RATE_LIMIT_MESSAGES_PER_MINUTE
+        value: "10"
+      - key: MAX_CONVERSATION_HISTORY
+        value: "20"
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: TELEGRAM_WEBHOOK_URL
+        sync: false
+      - key: BOT_DISPLAY_NAME
+        value: Alife - A Personal Archive
+      - key: PROMPTS_CONFIG_PATH
+        value: config/prompts/prompts.yaml
+      - key: WEB_APP_ENABLED
+        value: "false"
+      - key: WEB_APP_URL
+        sync: false

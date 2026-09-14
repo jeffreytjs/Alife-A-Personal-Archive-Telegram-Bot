@@ -1,0 +1,14 @@
+node_modules/
+dist/
+.next/
+
+.env
+.env.local
+.env.*.local
+ngrok.yml
+
+data/
+*.log
+
+.DS_Store
+Thumbs.db
