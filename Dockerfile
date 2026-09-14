@@ -18,6 +18,7 @@ COPY package*.json ./
 RUN npm ci --omit=dev && npm cache clean --force
 
 COPY --from=build /app/dist ./dist
+COPY config/prompts ./config/prompts
 
 EXPOSE 3000
 CMD ["npm", "start"]
